@@ -1,0 +1,9 @@
+{
+  "name": "tracelens-api",
+  "private": true,
+  "scripts": {
+    "dev": "node ../../scripts/dev.mjs api",
+    "test": "uv run pytest -q",
+    "lint": "uv run ruff check ."
+  }
+}

@@ -1,0 +1,53 @@
+[project]
+name = "tracelens-api"
+version = "0.1.0"
+description = "TraceLens ingestion, query, and analysis API"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = [
+    "fastapi>=0.143,<0.144",
+    "uvicorn[standard]>=0.54,<0.55",
+    "pydantic>=2.14,<3",
+    "pydantic-settings>=2.15,<3",
+    "sqlalchemy>=2.1,<2.2",
+    "alembic>=1.20,<2",
+    "psycopg[binary]>=3.3,<4",
+    "redis>=5,<9",
+    "arq>=0.28,<0.29",
+    "pyjwt>=2.15,<3",
+    "cryptography>=45",
+    "httpx>=0.28,<0.29",
+    "jsonschema>=4.26,<5",
+    "opentelemetry-proto>=1.45,<2",
+    "protobuf>=5",
+    "openai>=2",
+    "anthropic>=0.70",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1,<10",
+    "ruff>=0.17,<0.18",
+    "fakeredis>=2.30",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "SIM", "RUF"]
+# E501: the formatter owns line length; remaining long lines are prompt/SQL string literals.
+ignore = ["S101", "B008", "RUF012", "S311", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106", "S108"]
+"alembic/**" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning:arq.*"]

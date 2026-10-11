@@ -1,0 +1,46 @@
+[project]
+name = "tracelens"
+version = "0.1.0"
+description = "Python SDK for TraceLens: tracing, debugging, and evaluation for AI agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "TraceLens contributors" }]
+dependencies = ["httpx>=0.27"]
+
+[project.optional-dependencies]
+openai = ["openai>=1.40"]
+anthropic = ["anthropic>=0.34"]
+langchain = ["langchain-core>=0.3"]
+langgraph = ["langchain-core>=0.3", "langgraph>=0.2"]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3",
+  "pytest-asyncio>=0.24",
+  "ruff>=0.8",
+  "openai>=1.40",
+  "anthropic>=0.34",
+  "langchain-core>=0.3",
+  "langgraph>=0.2",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tracelens"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["E501"]

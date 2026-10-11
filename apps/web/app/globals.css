@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * TraceLens "precision instrument" palette. Graphite neutrals with a faint cool
+ * cast; signal amber is reserved for primary action, selection, and focus.
+ * Status hues (ok / error / warn / info) never reuse the accent.
+ */
+:root {
+  --background: oklch(0.985 0.002 250);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.965 0.003 250);
+  --foreground: oklch(0.2 0.01 255);
+  --muted: oklch(0.955 0.004 250);
+  --muted-foreground: oklch(0.47 0.012 255);
+  --border: oklch(0.905 0.005 250);
+  --border-strong: oklch(0.84 0.006 250);
+  --input: oklch(0.88 0.006 250);
+  --accent: oklch(0.72 0.16 70);
+  --accent-strong: oklch(0.62 0.15 62);
+  --accent-foreground: oklch(0.2 0.03 60);
+  --accent-soft: oklch(0.95 0.05 80);
+  --ring: oklch(0.72 0.16 70);
+  --ok: oklch(0.56 0.14 155);
+  --ok-soft: oklch(0.95 0.04 155);
+  --error: oklch(0.56 0.2 27);
+  --error-soft: oklch(0.96 0.03 27);
+  --warn: oklch(0.6 0.15 50);
+  --info: oklch(0.55 0.12 245);
+  --info-soft: oklch(0.95 0.03 245);
+  --kind-llm: oklch(0.58 0.17 295);
+  --kind-tool: oklch(0.6 0.12 200);
+  --kind-retrieval: oklch(0.6 0.13 165);
+  --kind-agent: oklch(0.62 0.15 345);
+  --kind-chain: oklch(0.55 0.08 260);
+  --kind-http: oklch(0.6 0.12 235);
+  --kind-other: oklch(0.6 0.01 255);
+  --shadow-color: 220 30% 10%;
+}
+
+.dark {
+  --background: oklch(0.165 0.006 255);
+  --surface: oklch(0.195 0.007 255);
+  --surface-2: oklch(0.225 0.008 255);
+  --foreground: oklch(0.93 0.005 250);
+  --muted: oklch(0.24 0.008 255);
+  --muted-foreground: oklch(0.68 0.012 255);
+  --border: oklch(0.285 0.008 255);
+  --border-strong: oklch(0.36 0.01 255);
+  --input: oklch(0.32 0.01 255);
+  --accent: oklch(0.8 0.155 75);
+  --accent-strong: oklch(0.86 0.15 82);
+  --accent-foreground: oklch(0.2 0.04 60);
+  --accent-soft: oklch(0.3 0.06 70);
+  --ring: oklch(0.8 0.155 75);
+  --ok: oklch(0.76 0.15 155);
+  --ok-soft: oklch(0.29 0.05 155);
+  --error: oklch(0.7 0.18 25);
+  --error-soft: oklch(0.29 0.07 25);
+  --warn: oklch(0.78 0.14 55);
+  --info: oklch(0.74 0.11 240);
+  --info-soft: oklch(0.29 0.05 245);
+  --kind-llm: oklch(0.74 0.15 295);
+  --kind-tool: oklch(0.76 0.11 200);
+  --kind-retrieval: oklch(0.77 0.13 165);
+  --kind-agent: oklch(0.76 0.14 345);
+  --kind-chain: oklch(0.7 0.07 260);
+  --kind-http: oklch(0.75 0.11 235);
+  --kind-other: oklch(0.66 0.01 255);
+  --shadow-color: 220 40% 2%;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-ring: var(--ring);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-error: var(--error);
+  --color-error-soft: var(--error-soft);
+  --color-warn: var(--warn);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-kind-llm: var(--kind-llm);
+  --color-kind-tool: var(--kind-tool);
+  --color-kind-retrieval: var(--kind-retrieval);
+  --color-kind-agent: var(--kind-agent);
+  --color-kind-chain: var(--kind-chain);
+  --color-kind-http: var(--kind-http);
+  --color-kind-other: var(--kind-other);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --shadow-popover: 0 8px 24px -6px hsl(var(--shadow-color) / 0.35), 0 2px 6px -2px hsl(var(--shadow-color) / 0.25);
+  --animate-in: fade-in 140ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--accent) 35%, transparent);
+    color: var(--foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  input,
+  textarea {
+    caret-color: var(--accent);
+  }
+  a {
+    text-underline-offset: 3px;
+  }
+  .tabular,
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

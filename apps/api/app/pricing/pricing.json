@@ -1,0 +1,21 @@
+{
+  "version": "2025-06-01",
+  "currency": "USD",
+  "unit": "per_1m_tokens",
+  "notice": "List prices transcribed from the providers' public pricing pages as of the 'as_of' date. Providers change prices; verify before relying on these estimates and override with PRICING_FILE. Batch discounts, regional pricing, and cache-write surcharges are not modeled.",
+  "models": {
+    "openai/gpt-4o": {"input": 2.5, "cached_input": 1.25, "output": 10.0, "as_of": "2025-06-01", "source": "https://openai.com/api/pricing/"},
+    "openai/gpt-4o-mini": {"input": 0.15, "cached_input": 0.075, "output": 0.6, "as_of": "2025-06-01", "source": "https://openai.com/api/pricing/"},
+    "openai/gpt-4.1": {"input": 2.0, "cached_input": 0.5, "output": 8.0, "as_of": "2025-06-01", "source": "https://openai.com/api/pricing/"},
+    "openai/gpt-4.1-mini": {"input": 0.4, "cached_input": 0.1, "output": 1.6, "as_of": "2025-06-01", "source": "https://openai.com/api/pricing/"},
+    "openai/gpt-4.1-nano": {"input": 0.1, "cached_input": 0.025, "output": 0.4, "as_of": "2025-06-01", "source": "https://openai.com/api/pricing/"},
+    "openai/o3-mini": {"input": 1.1, "cached_input": 0.55, "output": 4.4, "as_of": "2025-06-01", "source": "https://openai.com/api/pricing/"},
+    "openai/o4-mini": {"input": 1.1, "cached_input": 0.275, "output": 4.4, "as_of": "2025-06-01", "source": "https://openai.com/api/pricing/"},
+    "anthropic/claude-3-5-haiku": {"input": 0.8, "cached_input": 0.08, "output": 4.0, "as_of": "2025-06-01", "source": "https://www.anthropic.com/pricing#api"},
+    "anthropic/claude-3-5-sonnet": {"input": 3.0, "cached_input": 0.3, "output": 15.0, "as_of": "2025-06-01", "source": "https://www.anthropic.com/pricing#api"},
+    "anthropic/claude-3-7-sonnet": {"input": 3.0, "cached_input": 0.3, "output": 15.0, "as_of": "2025-06-01", "source": "https://www.anthropic.com/pricing#api"},
+    "anthropic/claude-3-haiku": {"input": 0.25, "cached_input": 0.03, "output": 1.25, "as_of": "2025-06-01", "source": "https://www.anthropic.com/pricing#api"},
+    "anthropic/claude-sonnet-4": {"input": 3.0, "cached_input": 0.3, "output": 15.0, "as_of": "2025-06-01", "source": "https://www.anthropic.com/pricing#api"},
+    "anthropic/claude-opus-4": {"input": 15.0, "cached_input": 1.5, "output": 75.0, "as_of": "2025-06-01", "source": "https://www.anthropic.com/pricing#api"}
+  }
+}
